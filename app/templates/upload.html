@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <title>Upload Video</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Upload your guitar practice video</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="video"><br><br>
+
+        
+        <label for="description">Description:</label><br>
+        <textarea name="description" rows="4"  cols="50" placeholder="Write your memory here...">{{ description|default('') }}</textarea><br><br>
+
+
+        <input type="submit" value="Upload">
+    </form>
+
+    {% if video_filename %}
+        {% set ext = video_filename.rsplit('.', 1)[1].lower()  %}
+        {% if ext == 'mov' %}
+            {% set mime_type = 'video/quicktime' %}
+        {% elif ext == 'avi' %}
+            {% set mime_type = 'video/x-msvideo' %}
+        {% else %}
+            {% set mime_type = 'video/mp4' %}
+        {% endif %}
+        <h2>Your uploaded video:</h2>
+        <video width="320" height="240" controls>
+            <source src="{{url_for('static', filename='uploads/' + video_filename )}}" type="{{ mime_type }}">
+            Your browser does not support the video tag
+        </video>
+
+        {% if description %}
+            <h3>Your Memory:</h3>
+            <p>{{ description }}</p>
+        {% endif %}
+
+    {% endif %}
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for message in messages %}
+                    <li>{{message}}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <a href="{{ url_for('main.diary') }}">
+        <button>Back to Diary</button>
+    </a>
+</body>
+</html>
+
+
