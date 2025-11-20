@@ -75,8 +75,6 @@ def logout():
 @main.route('/upload', methods=['GET', 'POST'])
 @login_required
 def upload():
-    print("app.root_path =", app.root_path)
-    print("UPLOAD_FOLDER =", app.config['UPLOAD_FOLDER'])
     if request.method == 'POST':
         if 'video' not in request.files:
             flash('No file part')
@@ -89,6 +87,8 @@ def upload():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename).lower()
             upload_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
+            print("app.root_path =", app.root_path)
+            print("UPLOAD_FOLDER =", app.config['UPLOAD_FOLDER'])
             file.save(upload_path)
             
             new_video = Video(filename=filename, description=description)
