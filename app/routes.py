@@ -1,5 +1,5 @@
 import os
-from flask import Blueprint, render_template, request, redirect, url_for,  current_app, flash
+from flask import Blueprint, app, render_template, request, redirect, url_for,  current_app, flash
 from flask_login import login_user, current_user, logout_user, login_required
 from werkzeug.utils import secure_filename
 from . import db
@@ -75,6 +75,8 @@ def logout():
 @main.route('/upload', methods=['GET', 'POST'])
 @login_required
 def upload():
+    print("app.root_path =", app.root_path)
+    print("UPLOAD_FOLDER =", app.config['UPLOAD_FOLDER'])
     if request.method == 'POST':
         if 'video' not in request.files:
             flash('No file part')
