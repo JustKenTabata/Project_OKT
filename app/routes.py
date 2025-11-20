@@ -1,5 +1,5 @@
 import os
-from flask import Blueprint, app, render_template, request, redirect, url_for,  current_app, flash
+from flask import Blueprint, render_template, request, redirect, url_for,  current_app, flash
 from flask_login import login_user, current_user, logout_user, login_required
 from werkzeug.utils import secure_filename
 from . import db
@@ -87,8 +87,8 @@ def upload():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename).lower()
             upload_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
-            print("app.root_path =", app.root_path)
-            print("UPLOAD_FOLDER =", app.config['UPLOAD_FOLDER'])
+            print("app.root_path =", current_app.root_path)
+            print("UPLOAD_FOLDER =", current_app.config['UPLOAD_FOLDER'])
             file.save(upload_path)
             
             new_video = Video(filename=filename, description=description)
