@@ -19,23 +19,6 @@ Key features include:
 - **Static files**: Stored in a `static/` directory (images, CSS, video)  
 - **Templates**: Jinja / HTML templating  
 
-## 📁 Directory Structure
-
-Here's an example of how your project might be organized:
-
-Project_OKT/
-├─ app.py (or main.py)
-├─ templates/
-│ └─ index.html
-├─ static/
-│ ├─ css/
-│ │ └─ styles.css
-│ ├─ images/
-│ │ └─ background.jpg
-│ └─ videos/
-│ └─ entry_video.mp4
-└─ README.md
-
 ## 💻 Installation & Setup
 
 1. Clone the repository:  
