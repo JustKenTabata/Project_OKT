@@ -3,37 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Diary Entries</title>
-    <style>
-        .entry-header {
-            background-color: #eee;
-            padding: 10px;
-            cursor: pointer;
-            margin-bottom: 5px;
-            border-radius: 5px;
-        }
-        .entry-content {
-            display: none;
-            padding: 10px;
-            margin-bottom: 10px;
-            background-color: #f9f9f9;
-            border-left: 4px solid #ccc;
-        }
-        video {
-            max-width: 600px;
-            width: 100%;
-            height: auto;
-            display: block;
-            margin-top: 10px;
-        }
-
-        .top-buttons {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-    </style>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
@@ -75,6 +44,6 @@
                 content.style.display = 'none';
             }
         }
-    </script>
+</script>
 </body>
 </html>

@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html leng="en">
-<div class="center_context">
-    <head>
-        <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8" />
         <title>Guitar Diary</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    </head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<div class="center_context">
     <body>
         <h1>Welcome to Guitar Diary !</h1>
+
+        <p class="app-theme">
+            Turn your everyday memories into music.
+        </p>
 
         <a href="{{ url_for('main.register') }}">
             <button>Register</button>
@@ -15,6 +19,16 @@
         <a href="{{ url_for('main.login') }}">
             <button>Login</button>
         </a>
+
+        <p class="app-description">
+            Pour your feelings of the moment into your daily practice.
+        </p>
+        <img src="{{ url_for('static', filename='images/screenshot-before-upload.png') }}" alt="Guitar Diary Image" class="photo"/>
+        <img src="{{ url_for('static', filename='images/screenshot-before-open.png') }}" alt="Guitar Diary Image" class="photo"/>
+        <img src="{{ url_for('static', filename='images/screenshot-after-upload.png') }}" alt="Guitar Diary Image" class="photo"/>
+        <p class="app-description">
+            Capture your guitar practice moments along with your thoughts and feelings. 
+            Upload videos of your practice sessions and add personal descriptions to create a musical diary that reflects your journey.
     </body>
 </div>
 </html>
